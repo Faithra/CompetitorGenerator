@@ -10,6 +10,14 @@
         font-weight: 400;
         font-style: normal;
     }    
+
+    .footer {
+        position:absolute;
+        left:0px;
+        bottom:0px;
+        height:30px;
+        width:100%;
+    }    
     </style>
 
 </head>
@@ -17,11 +25,14 @@
 <title>Deathmatch Island NPC Competitor Generator</title>
 <body class="roboto-regular">
     <center>
-    Generate an NPC for Deathmatch Island!
+    Generate an NPC for <font color="#f0592f"><b>Deathmatch Island</font></b>!
+    <br>
+    <br>
+    For more information, see: <a href="https://www.deathmatchis.land/">https://www.deathmatchis.land/</a>
 
 <br><br>
 
-<button class="create-competitor" onclick="generateCompetitor()">Generate competitor</button>
+<button class="create-competitor" onclick="generateCompetitor()"><font size="4">CREATE COMPETITOR</font></button>
 <script>
 
 //json data for competitors
@@ -155,7 +166,7 @@
 
 <p id="competitors"></p>
 
-<p>
+<p class="footer">
     Copyright ©2023 Tim Denee and Evil Hat Productions
     <br>
     All rights reserved
