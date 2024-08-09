@@ -1,26 +1,167 @@
 <!DOCTYPE html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        .roboto-regular {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }    
+    </style>
+
+</head>
 <html>
 <title>Deathmatch Island NPC Competitor Generator</title>
-<body>Generate an NPC for Deathmatch Island!
+<body class="roboto-regular">
+    <center>
+    Generate an NPC for Deathmatch Island!
 
+<br><br>
 
+<button class="create-competitor" onclick="generateCompetitor()">Generate competitor</button>
 <script>
 
-    fetch('./attributes.json')
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+//json data for competitors
 
+    var jsonData = {
+    "first_names": [
+        "Ahmed", "Calvin", "Edgar", "Huck", "Jimmy", "Monty", "Ransley", "Sebastian",
+        "August", "Chatri", "Elvis", "Ira", "Kai", "Omar", "Roman", "Sullivan",
+        "Banyu", "Colby", "Enzi", "Izem", "Leopold", "Orion", "Romeo", "Tariq",
+        "Beckett", "Crisanto", "Ephraim", "Jabari", "Lincoln", "Orson", "Roshan", "Ted",
+        "Bill", "Crow", "Faraji", "Jackson", "Lionel", "Oscar", "Rudy", "Van",
+        "Bowie", "Dexter", "Fox", "Jagger", "Matteo", "Ozzy", "Rufus", "Waldo",
+        "Brooks", "Dorian", "Gus", "Jaxon", "Maverick", "Pratam", "Ryder", "Watson",
+        "Byron", "Easton", "Ham", "Jett", "Milo", "Randy", "Sanford", "Zane",
+        "Achara", "Beulah", "Cora", "Farida", "Ione", "Minerva", "Priya", "Suzanne",
+        "Aisha", "Birdie", "Danika", "Farah", "Joy", "Missy", "Ramona", "Taraji",
+        "Amethyst", "Branwen", "Debb", "Gretchen", "Kartika", "Nellie", "Rosalina", "Tiffany",
+        "Anais", "Briar", "Deborah", "Habiba", "Luna", "Opal", "Ruby", "Tina",
+        "Ashanti", "Calliope", "Diana", "Harlow", "Mabel", "Ophelia", "Sawyer", "Violet",
+        "Bea", "Candice", "Dorcas", "Hattie", "Mae", "Pearl", "Sonja", "Willow",
+        "Beatrix", "Charity", "Drusilla", "Hazel", "Mila", "Piper", "Sparrow", "Wren",
+        "Betsy", "Connie", "Eloise", "Hilda", "Millie", "Poppy", "Stella", "Zahra",
+        "Ace", "Bay", "Channing", "Harley", "Kris", "Parker", "Roshan", "Sawyer",
+        "Ash", "Bailey", "Chase", "Harper", "Levi", "Pemberley", "Rudra", "Shannon",
+        "Andi", "Bellamy", "Chihiro", "Intan", "Lyric", "Quinn", "Rylan", "Sutton",
+        "Ari", "Blake", "Dallas", "Jayden", "Marion", "Raven", "Sage", "Vesper",
+        "Asa", "Bobbie", "Darcy", "Jordan", "Megumi", "Rayne", "Sakae", "Willow",
+        "Aspen", "Brooke", "Dylan", "Jude", "Minseo", "Ren", "Salem", "Whitney",
+        "Avery", "Carson", "Elliot", "Kai", "Morgan", "River", "Saffron", "Yujin",
+        "August", "Casey", "Frankie", "Kieran", "Murphy", "Rory", "Sasha", "Yuki"
+    ],
+    "surnames": [
+        "Ahmad", "Burns", "Dill", "Hardy", "Kilgore", "Matondo", "Powers", "Solomon",
+        "Ako", "Byeon", "Duke", "Hart", "Klug", "Merrick", "Prashad", "St James",
+        "Barrel", "Calabro", "Eckhaus", "Hartman", "Knapp", "Mintz", "Quinn", "Steele",
+        "Bartlett", "Camacho", "Fensby", "Hassan", "Kogoya", "Mohamed", "Raza", "Summers",
+        "Bartley", "Campos", "Floquet", "Hatch", "Krueger", "Moon", "Reed", "Taniguchi",
+        "Bates", "Cassidy", "Fontana", "Hatfield", "Kwan", "Morozov", "Richter", "Torres",
+        "Beauregard", "Castle", "Fonua", "Havenash", "Kwon", "Morrows", "Rivera", "Tremblay",
+        "Beckett", "Cervantes", "Fox", "Herschel", "Lamb", "Moss", "Roach", "Umemoto",
+        "Bellamy", "Chandler", "Fuimaono", "Hershey", "Lau", "Mungoshi", "Rojas", "Underwood",
+        "Benedetti", "Cheng", "Furyk", "Herzog", "Law", "Namgung", "Rosa", "Usoro",
+        "Berry", "Cheung", "Galloway", "Hill", "Leung", "Narayan", "Rose", "Valencia",
+        "Biggerstaff", "Chopra", "Galvan", "Hoang", "Li", "Nguyen", "Roy", "Vega",
+        "Birdwhistle", "Clements", "Garcia", "Hoffman", "Lim", "Nomura", "Rymer", "Walker",
+        "Black", "Cohen", "Garrett", "Holt", "Love", "OLeary", "Sallow", "Wilson",
+        "Boone", "Conklin", "Giang", "Huxley", "Lyons", "Opatha", "Sawadogo", "Winter",
+        "Boonmee", "Dankworth", "Goma", "Jeong", "Mack", "Ortiz", "Segura", "Yi",
+        "Boudreaux", "De la Croix", "Gray", "Juarez", "Mariano", "Padilla", "Sellers", "Yurkowski",
+        "Bread", "de Silva", "Green", "Kade", "Martel", "Panchak", "Sexton", "Zanidakis",
+        "Brown", "Devi", "Guzon", "Kane", "Mason", "Parata", "Singh", "Zhang",
+        "Bui", "Di Angelo", "Gyo", "Kelly", "Masters", "Porter", "Snow", "Zheng"
+    ],
+    "nicknames": [
+        "Admiral", "Champ", "Gandhi", "King Slayer", "Rebel", "Swish", "Adonis", "Chicken",
+        "Ghost", "Little X", "Ripley", "Tank", "Albatross", "Chuckles", "Godfather/Godmother", "Matrix",
+        "Rocket", "Tarzan", "Alpine", "Clutch", "Golden God", "Mentalist", "Rocky", "Terminator",
+        "Amigo", "Coach", "Grasshopper", "Merlin", "Sarge", "The Assassin", "Bad Moon", "Cobra",
+        "Grey Wolf", "Midas", "Sasquatch", "The Clown", "Ballgame", "Cockroach", "Grim Reaper", "Mockingjay",
+        "Scarface", "The Fridge", "Bambi", "Coma", "Grumpy", "Monk", "Scorpion", "The Rat",
+        "Batman", "Commando", "Gumshoe", "Mountain Goat", "Scourge", "The Truth", "Bear", "Cowpoke",
+        "Hawk", "Mouse", "Scout", "Tiger", "Big X", "Deadeye", "Hero", "Mule",
+        "Shadow", "Tinfoil", "Big Shot", "Diablo", "Hitman", "Nitro", "Shady", "Two-Face",
+        "Blaze", "Dirty Harry", "Hollywood", "Oddball", "Shiv", "Vegas", "Bookworm", "Doc",
+        "Houdini", "Pathfinder", "Sixpack", "Vulture", "Brains", "Dolphin", "Hurricane", "Pistol",
+        "Softy", "Wardog", "Bruiser", "Dragon", "Hustle", "Prime Time", "Speedy", "Weasel",
+        "Buddy", "Fairplay", "Joker", "Private Eye", "Star", "Whisper", "Butch", "Firecracker",
+        "Judge", "Queen/King", "Steel", "Wildcat", "Butcher", "Firefly", "Juicy", "Rambo",
+        "Sugar", "Wraith", "Buttercup", "Friendly", "Kaboom", "Rascal", "Sunshine", "Yoda",
+        "Captain", "Frosty", "Kid", "Raven", "Sweet Pea", "Zen"
+    ],
+    "occupations": [
+        "Account Manager", "App Developer", "Aspiring Writer", "Big Pharma", "Sales Rep", "Accountant",
+        "Architect", "Astronaut", "Black Ops Soldier", "Actor", "Armored Car Guard", "Attorney",
+        "Bodybuilder", "Ad Executive", "Army Ranger", "Auto Customizer", "Bounty Hunter", "Aerobics Instructor",
+        "Army Tanker", "Banker", "Bowling Alley Owner", "Air Force Veteran", "Army Veteran", "Bar Manager",
+        "Boxer", "Alpine Guide", "Art Student", "Bartender", "Bricklayer", "Anesthesiologist", "Art Teacher",
+        "Basketball Coach", "Bus Driver", "Business Analyst", "Cattle Rancher", "Club Promoter", "Competitive Shooter",
+        "Business Consultant", "Cheer Coach", "Coast Guard Officer", "Company Exec", "Butcher", "Chef",
+        "Coconut Vendor", "Construction Worker", "Caretaker", "Chemist", "Coffee Barista", "Consultant",
+        "Carnival Worker", "Chicken Farmer", "College Administrator", "Content Creator", "Carpenter", "Chief Lifeguard",
+        "Combat Engineer", "Copier Salesperson", "Case Manager", "Chiropractor", "Commercial Diver", "Corporate Trainer",
+        "Cat Burglar", "Civil Rights Attorney", "Commercial Fisher", "Corrections Officer", "Country Music Singer",
+        "Dentist", "Drill Sergeant", "Farmer", "Creative Director", "Detective", "Economics Professor",
+        "Fashion Stylist", "Crossfit Coach", "District Attorney", "Electrician", "Fast Food Worker",
+        "Customer Service", "Divorce Attorney", "Elementary Teacher", "Fighter Pilot", "Cyber Security", "Doctor",
+        "English Teacher", "Filmmaker", "Dairy Farmer", "Document Manager", "Entrepreneur", "Financial Sales",
+        "Dancer", "Dog Trainer", "Exec. Assistant", "Firefighter", "Data Scientist", "Dolphin Trainer", "Factory Worker",
+        "Fishing Boat Captain", "Fitness Instructor", "Graphic Designer", "Health Worker", "Inherited Wealth",
+        "Flight Attendant", "Grocery Clerk", "Heavy Metal Band", "Intelligence Operative", "Forest Ranger",
+        "Guidance Counselor", "Hiking Guide", "Intern", "Former Child Actor", "Gun Range Owner", "Hotel Doorman",
+        "Ivy League Student", "Freelance Writer", "Gym Owner", "Hunting Guide", "Jazz Musician", "Goat Farmer",
+        "Gym Teacher", "Hustler", "Jeweler", "Government Agent", "Gymnastics Coach", "Ice Cream Scooper", "Judge",
+        "Graduate Student", "Hairdresser", "Influencer", "Law School Student", "Legal Secretary", "Marketing Executive",
+        "Mortician", "Nanny", "Life Coach", "Martial Arts Teacher", "Motivational Speaker", "Nature Guide",
+        "Limousine Driver", "Massage Therapist", "Multimedia Artist", "Neurologist", "Machine Gunner",
+        "Military Intelligence", "Musician", "News Anchor", "Magicians Assistant", "Military Police",
+        "Music Producer", "Nuclear Engineer", "Mail Carrier", "MilSim Enthusiast", "Music Teacher", "Nurse",
+        "Makeup Artist", "MMA Fighter", "Nutritionist", "Marathon Runner", "Model", "Nail Salon Manager",
+        "Office Assistant", "Office Manager", "Personal Trainer", "Pilot", "Private Investigator", "Oil Rig Worker",
+        "Pest Controller", "Plastic Surgeon", "Produce Clerk", "Olympic Athlete", "Photographer", "PMC Mercenary",
+        "Professional Assassin", "Organized Crime Boss", "Physical Therapist", "Poker Player", "Professional Cyclist",
+        "Organized Crime Enforcer", "Physician", "Police Officer", "Professional Gamer", "Paramedic", "Physics Teacher",
+        "Pop Star", "Professional Wrestler", "Paratrooper", "Physiotherapist", "Postal Worker", "Programmer",
+        "Pastor", "Piano Teacher", "Prisoner", "Project Manager", "Property Developer", "Retired Nurse", "Roofer",
+        "Septic Tank Servicer", "Quarterback", "Retired Police Officer", "Sailor", "Sheep Farmer", "Quartermaster",
+        "Retired Sniper", "Sales Manager", "Sheriff", "Radio Host", "Retired Special Ops", "Sandwich Artist",
+        "Shoe Salesman", "Real Estate Agent", "Retired Teacher", "School Bus Driver", "Singer", "Retail Salesperson",
+        "River Rafting Guide", "School Principal", "Social Worker", "Retired Naval Captain", "Road Repair Worker",
+        "Scoutmaster", "Software Developer", "Retired Navy Infantry", "Rocket Scientist", "Security Officer",
+        "Sports Radio Host", "Spray Tan Worker", "Swimsuit Model", "Urologist", "Water Tank Technician",
+        "Stay-at-Home Parent", "Tax Accountant", "Used Car Salesperson", "Wedding Videographer", "Steelworker",
+        "Television Writer", "Veterinarian", "Wildlife Photographer", "Student", "Therapist", "VIP Bodyguard",
+        "Writer", "Stunt Performer", "Toymaker", "Visual FX Producer", "Yoga Instructor", "Surfing Instructor",
+        "Truck Driver", "Volleyball Player", "Youth Mentor", "Survivalist", "T-Shirt Designer", "Waiter",
+        "Youth Pastor", "SWAT Officer", "Street Knife-Fighter", "Warehouse Worker", "Zookeeper"
+    ]
+}
 
+    console.log(jsonData.first_names.length)
+    function generateCompetitor(){
+
+        var first_name = jsonData["first_names"][Math.floor(Math.random() * jsonData.first_names.length)]
+        var surname = jsonData["surnames"][Math.floor(Math.random() * jsonData.surnames.length)]
+        var nickname = jsonData["nicknames"][Math.floor(Math.random() * jsonData.nicknames.length)]
+        var occupation = jsonData["occupations"][Math.floor(Math.random() * jsonData.occupations.length)]
+
+        console.log(first_name + surname + nickname + occupation)
+
+        document.getElementById("competitors").innerHTML += "<br><br><b>Name:</b> " + first_name + " " + surname + "<br><b>Nickname: </b>" + nickname + "<br><b>Occupation: </b>" + occupation  ;
+    }
 </script>
 
-
-
-
+<p id="competitors"></p>
 
 <p>
     Copyright ©2023 Tim Denee and Evil Hat Productions
     <br>
     All rights reserved
 </p>
+    </center>
 </body>
 </html>
