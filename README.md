@@ -1,0 +1,1 @@
+This is a simple competitor generator for Deathmatch Island, using the attributes provided from the book. I'm not an expert in html, javascript, css, json, or even roleplaying games. I just needed this for my game next week!
