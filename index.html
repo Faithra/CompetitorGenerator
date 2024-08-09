@@ -19,6 +19,7 @@
         bottom:0px;
         height:30px;
         width:100%;
+        z-index: 10;
     }    
     </style>
 
@@ -33,7 +34,7 @@
 <br><br>
 
 <button class="create-competitor" onclick="generateCompetitor()"><font size="4">CREATE COMPETITOR</font></button>
-
+<br>
 <script>
 
 //json data for competitors
@@ -161,17 +162,18 @@
         var nickname = jsonData["nicknames"][Math.floor(Math.random() * jsonData.nicknames.length)]
         var occupation = jsonData["occupations"][Math.floor(Math.random() * jsonData.occupations.length)]
 
-        document.getElementById("competitors").innerHTML += "<br><br><b>Name:</b> " + first_name + " " + surname + "<br><b>Nickname: </b>" + nickname + "<br><b>Occupation: </b>" + occupation  ;
+        document.getElementById("competitors").innerHTML += "<b>Name:</b> " + first_name + " " + surname + "<br><b>Nickname: </b>" + nickname + "<br><b>Occupation: </b>" + occupation + "<br><br>" ;
     }
 </script>
 
-<p id="competitors"></p>
-
-<p class="footer">
+<p id="competitors">
+<p>
     Copyright ©2023 Tim Denee and Evil Hat Productions
     <br>
     All rights reserved
 </p>
+</p>
+
     </center>
 </body>
 </html>
