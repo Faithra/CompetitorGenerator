@@ -149,8 +149,6 @@
         var nickname = jsonData["nicknames"][Math.floor(Math.random() * jsonData.nicknames.length)]
         var occupation = jsonData["occupations"][Math.floor(Math.random() * jsonData.occupations.length)]
 
-        console.log(first_name + surname + nickname + occupation)
-
         document.getElementById("competitors").innerHTML += "<br><br><b>Name:</b> " + first_name + " " + surname + "<br><b>Nickname: </b>" + nickname + "<br><b>Occupation: </b>" + occupation  ;
     }
 </script>
