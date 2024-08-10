@@ -13,6 +13,9 @@
         font-style: normal;
     }    
 
+    td{
+        padding: 0 15px
+    }
     .footer {
         position:fixed;
         left:0px;
@@ -46,7 +49,8 @@
 
 <br><br>
 
-<button class="button2" onclick="generateCompetitor()"><font size="4">CREATE COMPETITOR</font></button>
+<button class="button2" onclick="generateCompetitorTable()"><font size="4">CREATE COMPETITOR</font></button><button class="button2" onclick="generateFullCompetitorTable()"><font size="4">+ APPEARANCE</font></button>
+
 <br>
 <script>
 
@@ -86,14 +90,14 @@
         "Bartlett", "Camacho", "Fensby", "Hassan", "Kogoya", "Mohamed", "Raza", "Summers",
         "Bartley", "Campos", "Floquet", "Hatch", "Krueger", "Moon", "Reed", "Taniguchi",
         "Bates", "Cassidy", "Fontana", "Hatfield", "Kwan", "Morozov", "Richter", "Torres",
-        "Beauregard", "Castle", "Fonua", "Havenash", "Kwon", "Morrows", "Rivera", "Tremblay",
+        "Beauregard", "Castle", "Fonua", "Havenash", "Kwŏn", "Morrows", "Rivera", "Tremblay",
         "Beckett", "Cervantes", "Fox", "Herschel", "Lamb", "Moss", "Roach", "Umemoto",
         "Bellamy", "Chandler", "Fuimaono", "Hershey", "Lau", "Mungoshi", "Rojas", "Underwood",
         "Benedetti", "Cheng", "Furyk", "Herzog", "Law", "Namgung", "Rosa", "Usoro",
         "Berry", "Cheung", "Galloway", "Hill", "Leung", "Narayan", "Rose", "Valencia",
         "Biggerstaff", "Chopra", "Galvan", "Hoang", "Li", "Nguyen", "Roy", "Vega",
         "Birdwhistle", "Clements", "Garcia", "Hoffman", "Lim", "Nomura", "Rymer", "Walker",
-        "Black", "Cohen", "Garrett", "Holt", "Love", "OLeary", "Sallow", "Wilson",
+        "Black", "Cohen", "Garrett", "Holt", "Love", "O’Leary", "Sallow", "Wilson",
         "Boone", "Conklin", "Giang", "Huxley", "Lyons", "Opatha", "Sawadogo", "Winter",
         "Boonmee", "Dankworth", "Goma", "Jeong", "Mack", "Ortiz", "Segura", "Yi",
         "Boudreaux", "De la Croix", "Gray", "Juarez", "Mariano", "Padilla", "Sellers", "Yurkowski",
@@ -103,13 +107,13 @@
     ],
     "nicknames": [
         "Admiral", "Champ", "Gandhi", "King Slayer", "Rebel", "Swish", "Adonis", "Chicken",
-        "Ghost", "Little X", "Ripley", "Tank", "Albatross", "Chuckles", "Godfather/Godmother", "Matrix",
+        "Ghost", "Little [Name]", "Ripley", "Tank", "Albatross", "Chuckles", "Godfather/Godmother", "Matrix",
         "Rocket", "Tarzan", "Alpine", "Clutch", "Golden God", "Mentalist", "Rocky", "Terminator",
         "Amigo", "Coach", "Grasshopper", "Merlin", "Sarge", "The Assassin", "Bad Moon", "Cobra",
         "Grey Wolf", "Midas", "Sasquatch", "The Clown", "Ballgame", "Cockroach", "Grim Reaper", "Mockingjay",
         "Scarface", "The Fridge", "Bambi", "Coma", "Grumpy", "Monk", "Scorpion", "The Rat",
         "Batman", "Commando", "Gumshoe", "Mountain Goat", "Scourge", "The Truth", "Bear", "Cowpoke",
-        "Hawk", "Mouse", "Scout", "Tiger", "Big X", "Deadeye", "Hero", "Mule",
+        "Hawk", "Mouse", "Scout", "Tiger", "Big [Name]", "Deadeye", "Hero", "Mule",
         "Shadow", "Tinfoil", "Big Shot", "Diablo", "Hitman", "Nitro", "Shady", "Two-Face",
         "Blaze", "Dirty Harry", "Hollywood", "Oddball", "Shiv", "Vegas", "Bookworm", "Doc",
         "Houdini", "Pathfinder", "Sixpack", "Vulture", "Brains", "Dolphin", "Hurricane", "Pistol",
@@ -120,73 +124,132 @@
         "Captain", "Frosty", "Kid", "Raven", "Sweet Pea", "Zen"
     ],
     "occupations": [
-        "Account Manager", "App Developer", "Aspiring Writer", "Big Pharma", "Sales Rep", "Accountant",
-        "Architect", "Astronaut", "Black Ops Soldier", "Actor", "Armored Car Guard", "Attorney",
-        "Bodybuilder", "Ad Executive", "Army Ranger", "Auto Customizer", "Bounty Hunter", "Aerobics Instructor",
-        "Army Tanker", "Banker", "Bowling Alley Owner", "Air Force Veteran", "Army Veteran", "Bar Manager",
-        "Boxer", "Alpine Guide", "Art Student", "Bartender", "Bricklayer", "Anesthesiologist", "Art Teacher",
-        "Basketball Coach", "Bus Driver", "Business Analyst", "Cattle Rancher", "Club Promoter", "Competitive Shooter",
-        "Business Consultant", "Cheer Coach", "Coast Guard Officer", "Company Exec", "Butcher", "Chef",
-        "Coconut Vendor", "Construction Worker", "Caretaker", "Chemist", "Coffee Barista", "Consultant",
-        "Carnival Worker", "Chicken Farmer", "College Administrator", "Content Creator", "Carpenter", "Chief Lifeguard",
-        "Combat Engineer", "Copier Salesperson", "Case Manager", "Chiropractor", "Commercial Diver", "Corporate Trainer",
-        "Cat Burglar", "Civil Rights Attorney", "Commercial Fisher", "Corrections Officer", "Country Music Singer",
-        "Dentist", "Drill Sergeant", "Farmer", "Creative Director", "Detective", "Economics Professor",
-        "Fashion Stylist", "Crossfit Coach", "District Attorney", "Electrician", "Fast Food Worker",
-        "Customer Service", "Divorce Attorney", "Elementary Teacher", "Fighter Pilot", "Cyber Security", "Doctor",
-        "English Teacher", "Filmmaker", "Dairy Farmer", "Document Manager", "Entrepreneur", "Financial Sales",
-        "Dancer", "Dog Trainer", "Exec. Assistant", "Firefighter", "Data Scientist", "Dolphin Trainer", "Factory Worker",
-        "Fishing Boat Captain", "Fitness Instructor", "Graphic Designer", "Health Worker", "Inherited Wealth",
-        "Flight Attendant", "Grocery Clerk", "Heavy Metal Band", "Intelligence Operative", "Forest Ranger",
-        "Guidance Counselor", "Hiking Guide", "Intern", "Former Child Actor", "Gun Range Owner", "Hotel Doorman",
-        "Ivy League Student", "Freelance Writer", "Gym Owner", "Hunting Guide", "Jazz Musician", "Goat Farmer",
-        "Gym Teacher", "Hustler", "Jeweler", "Government Agent", "Gymnastics Coach", "Ice Cream Scooper", "Judge",
-        "Graduate Student", "Hairdresser", "Influencer", "Law School Student", "Legal Secretary", "Marketing Executive",
-        "Mortician", "Nanny", "Life Coach", "Martial Arts Teacher", "Motivational Speaker", "Nature Guide",
-        "Limousine Driver", "Massage Therapist", "Multimedia Artist", "Neurologist", "Machine Gunner",
-        "Military Intelligence", "Musician", "News Anchor", "Magicians Assistant", "Military Police",
-        "Music Producer", "Nuclear Engineer", "Mail Carrier", "MilSim Enthusiast", "Music Teacher", "Nurse",
-        "Makeup Artist", "MMA Fighter", "Nutritionist", "Marathon Runner", "Model", "Nail Salon Manager",
-        "Office Assistant", "Office Manager", "Personal Trainer", "Pilot", "Private Investigator", "Oil Rig Worker",
-        "Pest Controller", "Plastic Surgeon", "Produce Clerk", "Olympic Athlete", "Photographer", "PMC Mercenary",
-        "Professional Assassin", "Organized Crime Boss", "Physical Therapist", "Poker Player", "Professional Cyclist",
-        "Organized Crime Enforcer", "Physician", "Police Officer", "Professional Gamer", "Paramedic", "Physics Teacher",
-        "Pop Star", "Professional Wrestler", "Paratrooper", "Physiotherapist", "Postal Worker", "Programmer",
-        "Pastor", "Piano Teacher", "Prisoner", "Project Manager", "Property Developer", "Retired Nurse", "Roofer",
-        "Septic Tank Servicer", "Quarterback", "Retired Police Officer", "Sailor", "Sheep Farmer", "Quartermaster",
-        "Retired Sniper", "Sales Manager", "Sheriff", "Radio Host", "Retired Special Ops", "Sandwich Artist",
-        "Shoe Salesman", "Real Estate Agent", "Retired Teacher", "School Bus Driver", "Singer", "Retail Salesperson",
-        "River Rafting Guide", "School Principal", "Social Worker", "Retired Naval Captain", "Road Repair Worker",
-        "Scoutmaster", "Software Developer", "Retired Navy Infantry", "Rocket Scientist", "Security Officer",
-        "Sports Radio Host", "Spray Tan Worker", "Swimsuit Model", "Urologist", "Water Tank Technician",
-        "Stay-at-Home Parent", "Tax Accountant", "Used Car Salesperson", "Wedding Videographer", "Steelworker",
-        "Television Writer", "Veterinarian", "Wildlife Photographer", "Student", "Therapist", "VIP Bodyguard",
-        "Writer", "Stunt Performer", "Toymaker", "Visual FX Producer", "Yoga Instructor", "Surfing Instructor",
-        "Truck Driver", "Volleyball Player", "Youth Mentor", "Survivalist", "T-Shirt Designer", "Waiter",
-        "Youth Pastor", "SWAT Officer", "Street Knife-Fighter", "Warehouse Worker", "Zookeeper"
+        "Account Executive", "Amateur MMA Fighter", "Art Gallery Owner", "Aspiring Actor", "Aspiring Writer",
+        "Big Pharma Sales Rep", "Accountant", "Architect", "Astronaut", "Black Ops Soldier", "Actor",
+        "Armored Car Guard", "Attorney", "Bodybuilder", "Ad Executive", "Army Ranger", "Auto Customizer",
+        "Bounty Hunter", "Aerobics Instructor", "Army Tanker", "Banker", "Bowling Alley Owner", "Air Force Veteran",
+        "Army Veteran", "Bar Manager", "Boxer", "Alpine Guide", "Art Student", "Bartender", "Bricklayer",
+        "Anesthesiologist", "Art Teacher", "Basketball Coach", "Bus Driver", "Business Analyst", "Cattle Rancher",
+        "Club Promoter", "Competitive Shooter", "Business Consultant", "Cheer Coach", "Coast Guard Officer",
+        "Company Exec", "Butcher", "Chef", "Coconut Vendor", "Construction Worker", "Caretaker", "Chemist",
+        "Coffee Barista", "Consultant", "Carnival Worker", "Chicken Farmer", "College Administrator", "Content Creator",
+        "Carpenter", "Chief Lifeguard", "Combat Engineer", "Copier Salesperson", "Case Manager", "Chiropractor",
+        "Commercial Diver", "Corporate Trainer", "Cat Burglar", "Civil Rights Attorney", "Commercial Fisher",
+        "Corrections Officer", "Country Music Singer", "Dentist", "Drill Sergeant", "Farmer", "Creative Director",
+        "Detective", "Economics Professor", "Fashion Stylist", "Crossfit Coach", "District Attorney", "Electrician",
+        "Fast Food Worker", "Customer Service", "Divorce Attorney", "Elementary Teacher", "Fighter Pilot",
+        "Cyber Security", "Doctor", "English Teacher", "Filmmaker", "Dairy Farmer", "Document Manager",
+        "Entrepreneur", "Financial Sales", "Dancer", "Dog Trainer", "Exec. Assistant", "Firefighter",
+        "Data Scientist", "Dolphin Trainer", "Factory Worker", "Fishing Boat Captain", "Fitness Instructor",
+        "Graphic Designer", "Health Worker", "Inherited Wealth", "Flight Attendant", "Grocery Clerk",
+        "Heavy Metal Band", "Intelligence Operative", "Forest Ranger", "Guidance Counselor", "Hiking Guide",
+        "Intern", "Former Child Actor", "Gun Range Owner", "Hotel Doorman", "Ivy League Student", "Freelance Writer",
+        "Gym Owner", "Hunting Guide", "Jazz Musician", "Goat Farmer", "Gym Teacher", "Hustler", "Jeweler",
+        "Government Agent", "Gymnastics Coach", "Ice Cream Scooper", "Judge", "Graduate Student", "Hairdresser",
+        "Influencer", "Law School Student", "Legal Secretary", "Marketing Executive", "Mortician", "Nanny",
+        "Life Coach", "Martial Arts Teacher", "Motivational Speaker", "Nature Guide", "Limousine Driver",
+        "Massage Therapist", "Multimedia Artist", "Neurologist", "Machine Gunner", "Military Intelligence",
+        "Musician", "News Anchor", "Magician’s Assistant", "Military Police", "Music Producer", "Nuclear Engineer",
+        "Mail Carrier", "MilSim Enthusiast", "Music Teacher", "Nurse", "Makeup Artist", "MMA Fighter", "Nutritionist",
+        "Marathon Runner", "Model", "Nail Salon Manager", "Office Assistant", "Office Manager", "Personal Trainer",
+        "Pilot", "Private Investigator", "Oil Rig Worker", "Pest Controller", "Plastic Surgeon", "Produce Clerk",
+        "Olympic Athlete", "Photographer", "PMC Mercenary", "Professional Assassin", "Organized Crime Boss",
+        "Physical Therapist", "Poker Player", "Professional Cyclist", "Organized Crime Enforcer", "Physician",
+        "Police Officer", "Professional Gamer", "Paramedic", "Physics Teacher", "Pop Star", "Professional Wrestler",
+        "Paratrooper", "Physiotherapist", "Postal Worker", "Programmer", "Pastor", "Piano Teacher", "Prisoner",
+        "Project Manager", "Property Developer", "Retired Nurse", "Roofer", "Septic Tank Servicer", "Quarterback",
+        "Retired Police Officer", "Sailor", "Sheep Farmer", "Quartermaster", "Retired Sniper", "Sales Manager",
+        "Sheriff", "Radio Host", "Retired Special Ops", "Sandwich Artist", "Shoe Salesman", "Real Estate Agent",
+        "Retired Teacher", "School Bus Driver", "Singer", "Retail Salesperson", "River Rafting Guide", "School Principal",
+        "Social Worker", "Retired Naval Captain", "Road Repair Worker", "Scoutmaster", "Software Developer",
+        "Retired Navy Infantry", "Rocket Scientist", "Security Officer", "Sports Radio Host", "Spray Tan Worker",
+        "Swimsuit Model", "Urologist", "Water Tank Technician", "Stay-at-Home Parent", "Tax Accountant",
+        "Used Car Salesperson", "Wedding Videographer", "Steelworker", "Television Writer", "Veterinarian",
+        "Wildlife Photographer", "Student", "Therapist", "VIP Bodyguard", "Writer", "Stunt Performer", "Toymaker",
+        "Visual FX Producer", "Yoga Instructor", "Surfing Instructor", "Truck Driver", "Volleyball Player",
+        "Youth Mentor", "Survivalist", "T-Shirt Designer", "Waiter", "Youth Pastor", "SWAT Officer", "Street Knife-Fighter",
+        "Warehouse Worker", "Zookeeper"
+    ],
+    "eye_types": [
+        "Sad", "Piercing", "Cold", "Warm", "Calm", "Smiling", "Dark", "Glacial",
+        "Faded", "Distant", "Tired", "Searching", "Twitchy", "Beautiful", "Haunted",
+        "Glittering", "Watery", "Large", "Beady", "Hard"
+    ],
+    "build_types": [
+        "Brawny", "Compact", "Bulky", "Rugged", "Athletic", "Average", "Gaunt", "Wiry",
+        "Ripped", "Sinewy", "Relaxed", "Beefy", "Soft", "Towering", "Delicate", "Muscular",
+        "Large", "Elegant", "Angular", "Willowy"
+    ],
+    "hair_types": [
+        "Shaved", "Tied back", "Cascading", "Shaggy", "Striking", "Dyed", "Tidy", "Boring",
+        "Sleek", "Neat", "Undercut", "Messy", "Sharp", "Practical", "Fashionable", "Bangs",
+        "Perfect", "Lank", "Thick", "Spiky"
+    ],
+    "details": [
+        "Jewellery", "Striking nose", "Notable scar", "Unusual face", "Striking eyebrows",
+        "Pleasant scent", "Tattoo", "Wears a hat", "Limp", "Damp hands", "Wears glasses", "Chewed fingernails",
+        "Understated", "Gold tooth", "Crooked nose", "Eye patch", "Stained hands", "Twitch", "Perfect teeth", "Strong hands"
+    ],
+    "uniform_types": [
+        "Tracksuit", "Coveralls", "Polo shirt, shorts", "Blazer, turtleneck", "Shirt, cargo pants", "T-shirt, sweatpants"
+    ],
+    "colours": [
+        "Burnt Sienna", "Seafoam", "Salmon", "Goldenrod", "Plum", "Cerulean"
     ]
-}
+    }
 
-    console.log(jsonData.first_names.length)
-    function generateCompetitor(){
-
+    function generateCompetitorTable(){
         var first_name = jsonData["first_names"][Math.floor(Math.random() * jsonData.first_names.length)]
         var surname = jsonData["surnames"][Math.floor(Math.random() * jsonData.surnames.length)]
         var nickname = jsonData["nicknames"][Math.floor(Math.random() * jsonData.nicknames.length)]
         var occupation = jsonData["occupations"][Math.floor(Math.random() * jsonData.occupations.length)]
 
-        document.getElementById("competitors").innerHTML += "<b>Name:</b> " + first_name + " " + surname + "<br><b>Nickname: </b>" + nickname + "<br><b>Occupation: </b>" + occupation + "<br><br>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Name</b></td><td>" + first_name + " " + surname + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Nickname</b></td><td>" + nickname + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Occupation</b></td><td>" + occupation + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<br>" ;
     }
+
+    function generateFullCompetitorTable(){
+        var first_name = jsonData["first_names"][Math.floor(Math.random() * jsonData.first_names.length)]
+        var surname = jsonData["surnames"][Math.floor(Math.random() * jsonData.surnames.length)]
+        var nickname = jsonData["nicknames"][Math.floor(Math.random() * jsonData.nicknames.length)]
+        var occupation = jsonData["occupations"][Math.floor(Math.random() * jsonData.occupations.length)]
+        var eyes = jsonData["eye_types"][Math.floor(Math.random() * jsonData.eye_types.length)]
+        var build = jsonData["build_types"][Math.floor(Math.random() * jsonData.build_types.length)]
+        var hair = jsonData["hair_types"][Math.floor(Math.random() * jsonData.hair_types.length)]
+        var detail1 = jsonData["details"][Math.floor(Math.random() * jsonData.details.length)]
+        var detail2 = jsonData["details"][Math.floor(Math.random() * jsonData.details.length)]
+        while (detail1 == detail2){
+            var detail2 = jsonData["details"][Math.floor(Math.random() * jsonData.details.length)]
+        }
+        var uniform = jsonData["uniform_types"][Math.floor(Math.random() * jsonData.uniform_types.length)]
+        var uniform_colour = jsonData["colours"][Math.floor(Math.random() * jsonData.colours.length)]
+
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Name</b></td><td>" + first_name + " " + surname + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Nickname</b></td><td>" + nickname + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Occupation</b></td><td>" + occupation + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Eyes</b></td><td>" + eyes + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Build</b></td><td>" + build + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Hair</b></td><td>" + hair + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Details</b></td><td>" + detail1 + ", " + detail2 + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Uniform</b></td><td>" + uniform + "</td></tr>" ;
+        document.getElementById("competitors").innerHTML += "<tr><td><b>Uniform colour</b></td><td>" + uniform_colour + "</td></tr>" ;
+
+        document.getElementById("competitors").innerHTML += "<br>" ;
+    }
+
 </script>
 
-<p id="competitors">
+<!--I know tables aren't modern but also I am not a web dev-->
+<table id="competitors">
+
+</table>
 <p>
     Copyright ©2023 Tim Denee and Evil Hat Productions
     <br>
     All rights reserved
 </p>
-</p>
-
     </center>
 </body>
 </html>
